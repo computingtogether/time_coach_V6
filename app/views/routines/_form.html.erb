@@ -1,0 +1,17 @@
+<%= form_with(model: routine) do |form| %>
+  <% if routine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(routine.errors.count, "error") %> prohibited this routine from being saved:</h2>
+
+      <ul>
+        <% routine.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
