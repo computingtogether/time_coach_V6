@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ :root {
+  --green: rgb(0, 119, 0);
+  --red: rgb(140,0,0);
+}
+
+ ul.nav-header{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+ }
+
+ .text-field_routine-name{
+   width: 99%;
+   margin-top: 10px;
+   margin-bottom: 10px;
+ }
+
+ .activity-field-title{
+  width: 20%;
+  margin-top: 10px;
+  margin-right: 10px;
+ }
+
+ .activity-field-description{
+   width: 60%;
+   margin-top: 5px;
+   margin-right: 10px;
+  }
+  
+  .activity-field-duration{
+    width: 10%;
+    margin-top: 10px;
+  }
+
+  .activity-fields-container{
+   display:block;
+ }
+
+ .notice{
+   color: green;
+ }
+
+ .alert{
+  color: green;
+}
+
+

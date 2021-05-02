@@ -8,11 +8,13 @@ class RoutinesController < ApplicationController
 
   # GET /routines/1 or /routines/1.json
   def show
+    @routine = Routine.find(params[:id])
   end
 
   # GET /routines/new
   def new
     @routine = Routine.new
+    @routine.activities.build
   end
 
   # GET /routines/1/edit
@@ -64,6 +66,9 @@ class RoutinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def routine_params
-      params.fetch(:routine, {})
+      params
+        .require(:routine)
+        .permit(:routine_type, :user_id, activities_attributes: [:id, :activity_title, :description, :duration, :_destroy])
     end
 end
+ 

@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @routine.routine_type %></h1>
+<table>
+  <tr>
+      <% @routine.activities.each do |activity| %>
+      <tr>
+        <td>
+        <%= activity.activity_title %>
+        </td>
+        <td>
+        <%= activity.description %>
+        </td>
+        <td>
+        <%= activity.duration %> minutes
+        </td>
+      </tr>
+      <% end %>
+  </tr>
+</table>
+
 
 <%= link_to 'Edit', edit_routine_path(@routine) %> |
 <%= link_to 'Back', routines_path %>

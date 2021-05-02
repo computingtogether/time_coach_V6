@@ -10,8 +10,39 @@
       </ul>
     </div>
   <% end %>
+    
+    <% if user_signed_in? %>
+      <div class="field">
+        <%= form.text_field :routine_type, class: 'text-field_routine-name', placeholder: 'Routine Name' %>
+      <br />
+      <div class="field">
+        <%= form.fields_for :activities do |f| %>
+          <%= render 'activity_fields', f: f%>
+        <% end %>
+         <%= link_to_add_fields "Add Another Activiy", form, :activities%>
+      <br />
+      <br />
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+      <br />
+        <%= form.number_field :user_id, id: :routine_user_id, value: current_user.id, type: :hidden %>
+      </div>
+
+      <br />
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
 <% end %>
+
+
+<script>
+  $('form').on('click', '.add_fields', function(event){
+    var regexp, time;
+    time = new Date().getTime();
+    regexp  = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    return event.preventDefault();
+  });
+</script>

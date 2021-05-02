@@ -11,8 +11,13 @@
   </head>
 
   <body>
+  <body>
+  
+    <%= render 'routines/nav' %>
+    <%= yield %>
+    <div class="alert">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    <%= yield %>
+    </div>
   </body>
 </html>

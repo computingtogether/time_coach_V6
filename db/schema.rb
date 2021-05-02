@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_210020) do
+ActiveRecord::Schema.define(version: 2021_05_02_002717) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "activity_title"
+    t.string "description"
+    t.integer "duration"
+    t.integer "routine_id"
+    t.index ["routine_id"], name: "index_activities_on_routine_id"
   end
 
   create_table "routines", force: :cascade do |t|
@@ -37,5 +42,6 @@ ActiveRecord::Schema.define(version: 2021_05_01_210020) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "routines"
   add_foreign_key "routines", "users"
 end
