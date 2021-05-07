@@ -32,6 +32,8 @@ gem 'timecop', '~> 0.9.4'
 gem 'rails-controller-testing'
 gem 'devise'
 gem 'jquery-rails'
+gem 'simplecov', require: false, group: :test
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
